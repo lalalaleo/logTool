@@ -13,7 +13,5 @@ export default {
     error:{
         level: 3,
     },
-    filters: [
-        
-    ],
+    filters: [],
 }

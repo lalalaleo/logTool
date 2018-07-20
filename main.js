@@ -1,13 +1,24 @@
-import config from './confLog'
-import style from './styleLog'
+import defaultConfig from './config'
+import style from './style'
 
 function getNow(){
     var now = new Date();
     return (now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()+':'+now.getMilliseconds());
 }
 
-export default function(moudle='Unknown'){
-    this.moudle = moudle;
+function handleConfig(oldVal, newVal){
+    for(let i in newVal) {
+        oldVal[i] = newVal[i];
+    }
+    return oldVal;
+}
+
+export default function(config=defaultConfig){
+    config = handleConfig(defaultConfig, config);
+    this.moudle = "Not Config";
+    this.init = (val)=>{
+        this.moudle = val;
+    } 
     this.filter=()=>{
         for(let i of config.filters){
             var reg = new RegExp(i);
