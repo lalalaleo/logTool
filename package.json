@@ -1,6 +1,6 @@
 {
   "name": "log-tool",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "前端日志工具",
   "main": "main.js",
   "scripts": {
