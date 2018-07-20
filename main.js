@@ -15,14 +15,14 @@ function handleConfig(oldVal, newVal){
 
 export default function(config=defaultConfig){
     config = handleConfig(defaultConfig, config);
-    this.moudle = "Not Config";
+    this.module = "Not Config";
     this.init = (val)=>{
-        this.moudle = val;
+        this.module = val;
     } 
     this.filter=()=>{
         for(let i of config.filters){
             var reg = new RegExp(i);
-            if(reg.test(this.moudle)){
+            if(reg.test(this.module)){
                 return true;
             };
         }
@@ -30,8 +30,17 @@ export default function(config=defaultConfig){
     }
     this.output=()=>{
         if((config.level<=config[this.mode].level)&&(this.str.length>0)&&(!this.filter())){
-            var now = config.time?getNow():'';
-            console.log('%c'+this.icon+'%c '+now+' '+this.moudle+' -',style[this.mode].icon,style.moudle,...this.str);
+            let icon = '%c'+this.icon+'%c ';
+            var now = config.time?getNow()+' - ':'';
+            let module = '%c'+this.module;
+            console.log(
+                icon+now+module,
+                style[this.mode].icon,
+                style.time,
+                style.module,
+                '\n',
+                ...this.str
+            );
         }
     }
     this.debug=(...str)=>{

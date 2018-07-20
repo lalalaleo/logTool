@@ -1,5 +1,6 @@
 export default {
-    moudle: 'color:rgba(0,0,0,0.6);line-height:24px;',
+    time: 'color:grey;line-height:24px;',
+    module: 'color:blue;line-height:24px;',
     debug:{
         icon: 'color:#fff;background-color:yellowgreen;padding: 2px 5px;font-weight: bold;border-radius:3px',
     },
