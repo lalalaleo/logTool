@@ -1,4 +1,4 @@
-import defaultConfig from './config'
+import config from './config'
 import style from './style'
 
 function getNow(){
@@ -6,23 +6,17 @@ function getNow(){
     return (now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()+':'+now.getMilliseconds());
 }
 
-function handleConfig(oldVal, newVal){
-    for(let i in newVal) {
-        oldVal[i] = newVal[i];
+function setConfig(conf){
+    for(let i in conf) {
+        config[i] = conf[i];
     }
-    return oldVal;
 }
 
-export default function(config=defaultConfig){
-    config = handleConfig(defaultConfig, config);
-    this.module = "Not Config";
-    this.init = (val)=>{
-        this.module = val;
-    } 
+let Log =  function(module = "Not Config"){
     this.filter=()=>{
         for(let i of config.filters){
             var reg = new RegExp(i);
-            if(reg.test(this.module)){
+            if(reg.test(module)){
                 return true;
             };
         }
@@ -32,9 +26,9 @@ export default function(config=defaultConfig){
         if((config.level<=config[this.mode].level)&&(this.str.length>0)&&(!this.filter())){
             let icon = '%c'+this.icon+'%c ';
             var now = config.time?getNow()+' - ':'';
-            let module = '%c'+this.module;
+            let modules = '%c'+module;
             console.log(
-                icon+now+module,
+                icon+now+modules,
                 style[this.mode].icon,
                 style.time,
                 style.module,
@@ -68,3 +62,8 @@ export default function(config=defaultConfig){
         this.output();
     }
 }
+
+export {
+    setConfig,
+    Log,
+} 
