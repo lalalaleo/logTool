@@ -1,5 +1,5 @@
-import config from './confLog'
-import style from './styleLog'
+import config from './config'
+import style from './style'
 
 function getNow(){
     var now = new Date();
