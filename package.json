@@ -1,7 +1,7 @@
 {
   "name": "log-tool",
-  "version": "0.4.0",
-  "description": "前端日志工具",
+  "version": "1.0.0",
+  "description": "front-end's log-tool",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
