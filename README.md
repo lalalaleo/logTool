@@ -1,10 +1,22 @@
 # logTool
 
+**Version: 1.0.2**
+
 ## 简介
 
 ​     这是一个前端日志工具，用于日志输出，筛选，管理。
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image.png)
+### 示例
+
+```JavaScript
+const log = new Log('Page/test');
+log.debug('debug');
+log.info('info');
+log.warn('warn');
+log.error('error');
+```
+
+![image_1](.\_image\image_1.png)
 
 ## 开发目的
 
@@ -27,51 +39,39 @@
 
 #### debug
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(1).png)
+![image_2](.\_image\image_2.png)
 
 - level：0，
 - 颜色：yellowgreen，
-- 作用：用于开发调试内容输出，
-- 情景：比如获取数据时，将数据相关信息输出。输出内容都为项目中获取或传递的数据。
-- 期望：善用debug日志，希望在调试情景下，可以看到整个页面的所有数据获取、传递信息。
-- API：log.debug()，
+- 方法：log.debug()，
 
 #### info
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(2).png)
+![image_3](.\_image\image_3.png)
 
 - level：1，
 - 颜色：skyblue，
-- 作用：特殊信息输出，
-- 情景：输出的内容不为项目中的获取或传递的数据。类似特殊标记，比如某个事件后输出一段特定的字符串等。
-- 期望：如果平时常用alert或console.log来做特殊点标记，希望能用log.info()替换。
-- API：log.info()，
+- 方法：log.info()，
 
 #### warn
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(3).png)
+![image_4](.\_image\image_4.png)
 
 - level：2，
 - 颜色：gold，
-- 作用：警告信息输出，
-- 情景：获取的数据异常时；正常理解就行，用于异常、警告的日志输出，
-- 期望：无，
-- API：log.warn()，
+- 方法：log.warn()，
 
 #### error
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(4).png)
+![image_5](.\_image\image_5.png)
 
 - level：3，
 - 颜色：red，
-- 作用：报错信息输出，
-- 情景：数据获取失败时；正常理解就行，用于报错的日志输出，
-- 期望：无，
-- API：log.error()，
+- 方法：log.error()，
 
 ### 输出时间
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(5).png)
+![image_6](.\_image\image_6.png)
 
 开启该功能时，会在每条日志输出时自动携带时间，默认关闭，在配置文件中可以选择开启或关闭这一项。
 
@@ -83,33 +83,77 @@
 
 除了调整项目等级来选择日志输出，还可以使用filters来屏蔽一些模块的日志。
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(6).png)
+```javascript
+filters: [
+    'Page/test',
+],
+```
 
 写法与模块相同，还可以用通配符来筛选多个模块，如：
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(7).png)
+```javascript
+filters: [
+    'Page/*',
+],
+```
 
-这样就可以屏蔽所有的页面、工具类、公共组件。
+这样就可以屏蔽所有的页面。
 
 ## 使用方式
 
-- 下载工具，并放置到公共工具类目录或静态资源目录（仅建议）
-- import log工具
-- 创建模块内log对象，配置模块信息
-- 修改配置文件，根据适合自己的情景进行配置。
-- 使用log对象的四个API
+### 下载
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(8).png)
+```javascript
+npm i log-tool
+```
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(9).png)
+### 全局引入
 
-### 配置文件 （confLog.js)
+```javascript
+import {Log} from 'log-tool'
+window.Log = Log;
+```
 
-![img](http://www.lalalaleo.bitcron.com/blog/_image/2017/09/Image(10).png)
+### 配置文件
+
+#### 默认
+
+```javascript
+export default {
+    level: 0,
+    time: false,
+    debug:{
+        level: 0,
+    },
+    info:{
+        level: 1,
+    },
+    warn:{
+        level: 2,
+    },
+    error:{
+        level: 3,
+    },
+    filters: [],
+}
+```
+
+#### 自定义
+
+```javascript
+import {setConfig} from 'log-tool'
+setConfig({
+    level: 1,
+    time: true,
+    filters: [
+        'Page/*'
+    ],
+});
+```
 
 ## 使用建议
 
-- 一般开发时，项目等级设为 1或以上
+- 一般开发时，项目等级设为 1或以上（屏蔽debug日志）
 - 调试时，将项目等级设为 0
 - 上线时，将项目等级设为 2以上，一般设为 3（仅输出error日志）
 - 必要的情况下，可以在上线时，将error日志发至后台，用于数据收集及维护 
