@@ -1,6 +1,6 @@
 {
   "name": "log-tool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "front-end's log-tool",
   "main": "main.js",
   "scripts": {
