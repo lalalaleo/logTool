@@ -1,6 +1,6 @@
 # logTool
 
-**Version: 1.0.4**
+**Version: 1.1.0**
 
 `解决了IE不支持ES6默认传参的问题.`
 
