@@ -12,7 +12,8 @@ function setConfig(conf){
     }
 }
 
-let Log =  function(module = "Not Config"){
+let Log =  function(module){
+    var module = module||"Not Config";
     this.filter=()=>{
         for(let i of config.filters){
             var reg = new RegExp(i);
