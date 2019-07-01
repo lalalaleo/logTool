@@ -1,3 +1,9 @@
+---
+
+---
+
+
+
 # logTool
 
 **Version: 1.1.0**
@@ -18,7 +24,7 @@ log.warn('warn');
 log.error('error');
 ```
 
-![image_1](https://raw.githubusercontent.com/lalalaleo/logTool/master/_image//image_1.png)
+![image_1](https://mc-dba.oss-cn-beijing.aliyuncs.com/cnpm/log-tool/image_1.png)
 
 ## 开发目的
 
@@ -41,7 +47,7 @@ log.error('error');
 
 #### debug
 
-![image_2](https://raw.githubusercontent.com/lalalaleo/logTool/master/_image//image_2.png)
+![image_2](https://mc-dba.oss-cn-beijing.aliyuncs.com/cnpm/log-tool/image_2.png)
 
 - level：0，
 - 颜色：yellowgreen，
@@ -49,7 +55,7 @@ log.error('error');
 
 #### info
 
-![image_3](https://raw.githubusercontent.com/lalalaleo/logTool/master/_image//image_3.png)
+![image_3](https://mc-dba.oss-cn-beijing.aliyuncs.com/cnpm/log-tool/image_3.png)
 
 - level：1，
 - 颜色：skyblue，
@@ -57,7 +63,7 @@ log.error('error');
 
 #### warn
 
-![image_4](https://raw.githubusercontent.com/lalalaleo/logTool/master/_image//image_4.png)
+![image_4](https://mc-dba.oss-cn-beijing.aliyuncs.com/cnpm/log-tool/image_4.png)
 
 - level：2，
 - 颜色：gold，
@@ -65,7 +71,7 @@ log.error('error');
 
 #### error
 
-![image_5](https://raw.githubusercontent.com/lalalaleo/logTool/master/_image//image_5.png)
+![image_5](https://mc-dba.oss-cn-beijing.aliyuncs.com/cnpm/log-tool/image_5.png)
 
 - level：3，
 - 颜色：red，
@@ -73,7 +79,7 @@ log.error('error');
 
 ### 输出时间
 
-![image_6](https://raw.githubusercontent.com/lalalaleo/logTool/master/_image//image_6.png)
+![image_6](https://mc-dba.oss-cn-beijing.aliyuncs.com/cnpm/log-tool/image_6.png)
 
 开启该功能时，会在每条日志输出时自动携带时间，默认关闭，在配置文件中可以选择开启或关闭这一项。
 
